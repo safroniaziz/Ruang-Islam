@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Istilah;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -18,7 +19,8 @@ class WelcomeController extends Controller
         $ppendidikan = $pendidikan/$semua * 100;
         $pekonomi = $ekonomi/$semua * 100;
         $pgelar = $gelar/$semua * 100;
-        return view('layouts.layout',compact('istilahs','semua','pendidikan','ekonomi','gelar','psemua','ppendidikan','pekonomi','pgelar'));
+        $kategoris = Kategori::all();
+        return view('layouts.layout',compact('istilahs','kategoris','semua','pendidikan','ekonomi','gelar','psemua','ppendidikan','pekonomi','pgelar'));
     }
 
     public function cariIstilah($id){

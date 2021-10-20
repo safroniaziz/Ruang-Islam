@@ -134,8 +134,19 @@
                         <h4 class="card-title mb-0">Cari Istilah Islam Di sini</h4>
                       </div>
                     </div>
+                    <div class="col-md-12 mt-4">
+                      <div class="form-group">
+                        <label for="" class="form-label">Filter Istilah Per Kategori :</label>
+                        <select name="filterkategori" class="form-control" id="filterkategori">
+                          <option selected="selected">-- Filter Kategori --</option>
+                          @foreach ($kategoris as $kategori)
+                              <option value="{{ $kategori->nm_kategori }}">{{ $kategori->nm_kategori }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
                     <div class="col-12 table-responsive">
-                      <table id="example" class="table">
+                      <table id="table" class="table">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -229,8 +240,13 @@
   <script src="{{ asset('assets/js/shared/data-table.js') }}"></script>
   <!-- End custom js for this page-->
   <script>
-    table = $('#example').DataTable( {
+    var table = $('#table').DataTable( {
 } );
+$('#filterkategori').change(function() {
+            table.columns(2)
+            .search(this.value)
+            .draw();
+        });
 
   function lihatDeskripsi(id){
     $.ajax({
