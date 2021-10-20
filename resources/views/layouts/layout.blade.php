@@ -34,7 +34,7 @@
       <div class="container d-flex flex-row nav-top">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top">
             <a class=" brand-logo" style="font-size: 27px; text-align:center; margin-top:10px;;">
-                <b>Kamus </b>Islam
+                <b>Ruang </b>Islam
             </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
             <img src="{{ asset('assets/images/logo.png') }}" alt="logo" /> </a>
